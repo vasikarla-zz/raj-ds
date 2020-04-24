@@ -166,16 +166,12 @@ workflows:
             - build
 
       - size:
-          filters:
-            branches:
-              ignore:
-                - master
+          requires:
+            - build
 
       - a11y:
-          filters:
-            branches:
-              ignore:
-                - master
+          requires:
+            - build
 
       - integration:
           filters:
