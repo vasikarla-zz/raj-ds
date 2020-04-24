@@ -165,19 +165,6 @@ workflows:
           requires:
             - build
 
-      - documentation:
-          requires:
-            - unit-tests
-            - lint
-
-      - release:
-          requires:
-            - documentation
-          filters:
-            branches:
-              only:
-                - master
-
       - size:
           requires:
             - documentation
