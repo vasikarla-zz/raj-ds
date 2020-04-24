@@ -182,14 +182,6 @@ workflows:
           requires:
             - build
 
-      - build:
-          requires:
-            - build
-
-      - build-storybook:
-          requires:
-            - build
-
       - release:
           requires:
             - documentation
