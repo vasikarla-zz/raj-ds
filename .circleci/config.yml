@@ -8,6 +8,7 @@ defaults: &defaults
     TZ: '/usr/share/zoneinfo/America/Los_Angeles'
 
 aliases:
+  # Circle related commands
   - &restore-cache
     keys:
       # Find a cache corresponding to this specific package.json checksum
@@ -163,6 +164,11 @@ workflows:
       - lint:
           requires:
             - build
+
+      - documentation:
+          requires:
+            - unit-tests
+            - lint
 
       - release:
           requires:
