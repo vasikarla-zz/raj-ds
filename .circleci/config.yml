@@ -119,7 +119,7 @@ jobs:
           at: ~/design-system
       - run:
           name: Check component bundle sizes
-          command: export GH_TOKEM=067692ee3f920834f7096be0c30ae66faa61875f && SIZE_TABLE=`yarn --silent size --ci` && npx auto comment --message "$SIZE_TABLE" --context bundle
+          command: GH_TOKEM=067692ee3f920834f7096be0c30ae66faa61875f && SIZE_TABLE=`yarn --silent size --ci` && npx auto comment --message "$SIZE_TABLE" --context bundle
 
   a11y:
     <<: *defaults
