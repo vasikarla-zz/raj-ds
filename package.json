@@ -1,0 +1,61 @@
+{
+  "name": "@raj-ds/monorepo",
+  "private": true,
+  "repository": "git@github.com:vasikarla/raj-ds.git",
+  "author": "Raj Vasikarla raj_vasikarla@intuit.com",
+  "contributors": [
+    "Raj Vasikarla raj_vasikarla@intuit.com"
+  ],
+  "resolutions": {
+    "postcss-markdown": "https://github.com/gucong3000/postcss-markdown"
+  },
+  "license": "MIT",
+  "scripts": {
+    "create": "ds create component",
+    "create:package": "ds create package",
+    "clean": "ds clean",
+    "dev": "ds dev",
+    "start": "lerna run start --parallel",
+    "storybook": "ds storybook start",
+    "playroom": "ds playroom start",
+    "lint": "ds lint",
+    "test": "ds test",
+    "build": "lerna run build --stream",
+    "build:storybook": "ds storybook build",
+    "build:playroom": "ds playroom build",
+    "size": "ds size"
+  },
+  "workspaces": [
+    "components/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "auto": "9.0.2",
+    "@design-systems/cli": "1.5.0",
+    "@testing-library/react": "9.4.0",
+    "@types/react-dom": "16.9.4",
+    "husky": "3.1.0",
+    "prettier": "1.19.1",
+    "lerna": "3.20.2",
+    "lint-staged": "9.5.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,ts,tsx,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "./coverage/target/surefire-reports"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@raj-ds/babel-preset",
+  "description": "Automatically load the css for the @raj-ds design system.",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vasikarla/raj-ds.git",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "!*.test.*",
+    "!__snapshots__",
+    "!__tests__"
+  ],
+  "dependencies": {
+    "@design-systems/babel-plugin-include-styles": "1.5.0"
+  }
+}
