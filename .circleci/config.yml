@@ -177,7 +177,9 @@ workflows:
       - size:
           requires:
             - build
-
+      - storybook:
+          requires:
+            - build
       - a11y:
           requires:
             - build
