@@ -1,0 +1,37 @@
+{
+  "name": "@raj-ds/sample-component",
+  "version": "0.0.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist",
+  "repository": "git@github.com:vasikarla/raj-ds.git",
+  "author": "Raj Vasikarla raj_vasikarla@intuit.com",
+  "contributors": ["Raj Vasikarla raj_vasikarla@intuit.com"],
+  "license": "MIT",
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "clean": "ds clean",
+    "build": "ds build",
+    "dev": "ds dev",
+    "storybook": "ds storybook start",
+    "start": "ds build --watch",
+    "test": "ds test",
+    "lint": "ds lint",
+    "size": "ds size"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.7.2"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.6"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!*.snippet.*",
+    "!*theme.*",
+    "!*.test.*",
+    "!__snapshots__",
+    "!__tests__"
+  ]
+}
