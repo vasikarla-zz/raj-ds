@@ -8,7 +8,6 @@ defaults: &defaults
     TZ: '/usr/share/zoneinfo/America/Los_Angeles'
 
 aliases:
-  # Circle related commands
   - &restore-cache
     keys:
       # Find a cache corresponding to this specific package.json checksum
@@ -102,6 +101,24 @@ jobs:
           name: Lint
           command: yarn lint
 
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/design-system
+      - run:
+          name: Build
+          command: yarn build          
+
+  build-storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/design-system
+      - run:
+          name: Build Storybook
+          command: yarn build:storybook
+
   release:
     <<: *defaults
     steps:
@@ -165,10 +182,13 @@ workflows:
           requires:
             - build
 
-      - documentation:
+      - build:
           requires:
-            - unit-tests
-            - lint
+            - build
+
+      - build-storybook:
+          requires:
+            - build
 
       - release:
           requires:
