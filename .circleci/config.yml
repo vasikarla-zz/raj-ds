@@ -130,6 +130,15 @@ jobs:
           name: Check component accessibility
           command: node ./.circleci/proof-a11y.js
 
+  storybook:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/design-system
+      - run:
+          name: Build Storybook
+          command: yarn build:storybook
+
   integration:
     <<: *defaults
     steps:
