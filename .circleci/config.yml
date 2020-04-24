@@ -101,24 +101,6 @@ jobs:
           name: Lint
           command: yarn lint
 
-  build:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/design-system
-      - run:
-          name: Build
-          command: yarn build          
-
-  build-storybook:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/design-system
-      - run:
-          name: Build Storybook
-          command: yarn build:storybook
-
   release:
     <<: *defaults
     steps:
